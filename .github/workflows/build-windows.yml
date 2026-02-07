@@ -1,0 +1,38 @@
+name: build-windows
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "work", "main", "master" ]
+
+jobs:
+  package:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Setup Inno Setup
+        run: choco install innosetup -y
+
+      - name: Build and package
+        shell: pwsh
+        run: ./build/Build.ps1 -Configuration Release -Runtime win-x64 -Version 0.1.0
+
+      - name: Upload portable exe bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: BP-win-x64-portable
+          path: artifacts/win-x64
+
+      - name: Upload installer exe
+        uses: actions/upload-artifact@v4
+        with:
+          name: BP-Setup-x64
+          path: artifacts/BP-Setup-x64.exe
