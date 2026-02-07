@@ -1,3 +1,4 @@
+codex/create-bp-architecture-and-delivery-specifications-jcqw5n
 #ifndef MyAppVersion
   #define MyAppVersion "0.1.0"
 #endif
@@ -7,6 +8,10 @@
 #endif
 
 #define MyAppName "BP"
+=======
+#define MyAppName "BP"
+#define MyAppVersion "0.1.0"
+main
 #define MyAppPublisher "Borod"
 #define MyAppExeName "BP.App.exe"
 
@@ -23,7 +28,11 @@ SolidCompression=yes
 ArchitecturesInstallIn64BitMode=x64
 
 [Files]
+codex/create-bp-architecture-and-delivery-specifications-jcqw5n
 Source: "{#SourceDir}\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+=======
+Source: "..\..\artifacts\win-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs
+main
 
 [Tasks]
 Name: "desktopicon"; Description: "Create desktop icon"; GroupDescription: "Additional icons:";

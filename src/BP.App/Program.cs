@@ -6,6 +6,7 @@ namespace BP.App;
 
 public static class Program
 {
+codex/create-bp-architecture-and-delivery-specifications-jcqw5n
     [STAThread]
     public static int Main(string[] args)
     {
@@ -21,6 +22,8 @@ public static class Program
         return 0;
     }
 
+=======
+main
     public static IServiceProvider BuildServices()
     {
         var services = new ServiceCollection();
