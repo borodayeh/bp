@@ -6,6 +6,24 @@ namespace BP.App;
 
 public static class Program
 {
+codex/create-bp-architecture-and-delivery-specifications-jcqw5n
+    [STAThread]
+    public static int Main(string[] args)
+    {
+        var services = BuildServices();
+
+        // Placeholder shell entrypoint until WinUI host is wired.
+        if (args.Contains("--health-check", StringComparer.OrdinalIgnoreCase))
+        {
+            return 0;
+        }
+
+        _ = services.GetRequiredService<PlaybackOrchestrator>();
+        return 0;
+    }
+
+=======
+main
     public static IServiceProvider BuildServices()
     {
         var services = new ServiceCollection();
